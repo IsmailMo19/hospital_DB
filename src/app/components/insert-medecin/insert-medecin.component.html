@@ -1,0 +1,71 @@
+<h1>Ajoutez un médecin</h1>
+
+<div class="form-container">
+  <div class="form-group">
+    <h1>Prénom</h1>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Jane"
+        [(ngModel)]="addedDoctor.prenom"
+        name="prenom"
+        required
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <h1>Nom</h1>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Doe"
+        [(ngModel)]="addedDoctor.nom"
+        name="nom"
+        required
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <h1>Spécialité</h1>
+    <select [(ngModel)]="addedDoctor.specialite">
+      <option *ngFor="let service of services" [value]="service.nomservice">
+        {{ service.nomservice }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <h1>Années d'expérience</h1>
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        placeholder="5"
+        [(ngModel)]="addedDoctor.anneesexperience"
+        name="anneesexperience"
+        required
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <h1>Service choisi</h1>
+    <select [(ngModel)]="addedDoctor.idservice" required>
+      <option *ngFor="let service of services" [value]="service.idservice">
+        {{ service.idservice }} - {{ service.nomservice }}
+      </option>
+    </select>
+  </div>
+
+  <button mat-button (click)="addMedecin()" [disabled]="!isValidForm()">
+    Ajouter un médecin
+  </button>
+  <div class="form-group warning">
+    <h2>
+      L'ajout d'un médecin vous menera à la page de la nouvelle liste de
+      médecins
+    </h2>
+  </div>
+</div>

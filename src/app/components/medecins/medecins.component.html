@@ -1,0 +1,42 @@
+<h1>Liste des Médecins</h1>
+
+<mat-table mat-table [dataSource]="medecins" class="mat-elevation-z8">
+  <ng-container matColumnDef="idmedecin">
+    <th mat-header-cell *matHeaderCellDef>ID medecin</th>
+    <td mat-cell *matCellDef="let medecin">{{ medecin.idmedecin }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="idservice">
+    <th mat-header-cell *matHeaderCellDef>ID service</th>
+    <td mat-cell *matCellDef="let medecin">{{ medecin.idservice }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="prenom">
+    <th mat-header-cell *matHeaderCellDef>Prénom</th>
+    <td mat-cell *matCellDef="let medecin">{{ medecin.prenom }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="nom">
+    <th mat-header-cell *matHeaderCellDef>Nom</th>
+    <td mat-cell *matCellDef="let medecin">{{ medecin.nom }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="specialite">
+    <th mat-header-cell *matHeaderCellDef>Spécialité</th>
+    <td mat-cell *matCellDef="let medecin">{{ medecin.specialite }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="anneesexperience">
+    <th mat-header-cell *matHeaderCellDef>Années d'expérience</th>
+    <td mat-cell *matCellDef="let medecin">{{ medecin.anneesexperience }}</td>
+  </ng-container>
+
+  <mat-header-row
+    *matHeaderRowDef="displayedColumns"
+    class="mat-cell-spacing"
+  ></mat-header-row>
+  <mat-row
+    *matRowDef="let row; columns: displayedColumns"
+    class="mat-cell-spacing"
+  ></mat-row>
+</mat-table>

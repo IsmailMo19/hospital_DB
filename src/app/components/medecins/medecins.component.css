@@ -1,0 +1,10 @@
+.mat-cell-spacing {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.mat-cell-spacing mat-cell {
+  flex: 1;
+  box-sizing: border-box;
+}

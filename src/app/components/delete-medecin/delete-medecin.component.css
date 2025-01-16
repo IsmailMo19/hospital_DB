@@ -1,0 +1,24 @@
+.mat-cell-spacing {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.mat-cell-spacing mat-cell {
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.warning {
+  color: red;
+}
+
+button.mat-icon-button:hover {
+  background-color: #e0e0e0;
+  transition: background-color 0.3s ease;
+}
+
+button.mat-icon-button:active {
+  background-color: #c0c0c0;
+  transition: background-color 0.1s ease;
+}

@@ -1,0 +1,63 @@
+<div *ngFor="let doctor of medecins" class="doctor-box">
+  <div class="form-group">
+    <h1>ID du médecin: {{ doctor.idmedecin }}</h1>
+  </div>
+
+  <div class="form-group">
+    <label for="prenom">Prénom:</label>
+    <input
+      type="text"
+      id="prenom"
+      name="prenom"
+      [(ngModel)]="doctor.prenom"
+      required
+    />
+    <mat-error *ngIf="!doctor.prenom"
+      >Veuillez insérer une valeur valide</mat-error
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="nom">Nom:</label>
+    <input type="text" id="nom" name="nom" [(ngModel)]="doctor.nom" required />
+    <mat-error *ngIf="!doctor.nom"
+      >Veuillez insérer une valeur valide</mat-error
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="specialite">Spécialité:</label>
+    <select [(ngModel)]="doctor.specialite" required>
+      <option *ngFor="let service of services" [value]="service.nomservice">
+        {{ service.nomservice }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="idservice">Id Service:</label>
+    <select [(ngModel)]="doctor.idservice" required>
+      <option *ngFor="let service of services" [value]="service.idservice">
+        {{ service.idservice }} - {{ service.nomservice }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="anneesexperience">Années d'expérience:</label>
+    <input
+      type="number"
+      id="anneesexperience"
+      name="anneesexperience"
+      [(ngModel)]="doctor.anneesexperience"
+      required
+    />
+    <mat-error *ngIf="!doctor.anneesexperience"
+      >Veuillez insérer une valeur valide</mat-error
+    >
+  </div>
+
+  <button (click)="modifierMedecin(doctor)" [disabled]="!isValidForm(doctor)">
+    Modifier les données de ce médecin
+  </button>
+</div>
